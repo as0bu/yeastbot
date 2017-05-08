@@ -11,6 +11,18 @@
                         <th class="header"> Strain <i class="icon-sort"></i></th>
                         <th class="header"> Lab <i class="icon-sort"></i></th>
                         <th class="header"> Product Name <i class="icon-sort"></i></th>
+                        <th class="header"> Species <i class="icon-sort"></i></th>
+                        <th class="header"> Brewery Source <i class="icon-sort"></i></th>
+                        <th class="header"> Fermentation Temperature Range (&deg;F) <i class="icon-sort"></i></th>
+                        <th class="header"> Apparent Attenuation (%) <i class="icon-sort"></i></th>
+                        <th class="header"> Flocculation <i class="icon-sort"></i></th>
+                        <th class="header"> Alcohol Tolerance (%) <i class="icon-sort"></i></th>
+                        <th class="header"> Pitching/Fermentation Notes <i class="icon-sort"></i></th>
+                        <th class="header"> Notes <i class="icon-sort"></i></th>
+                        <th class="header"> Best Styles <i class="icon-sort"></i></th>
+                        <th class="header"> Same As <i class="icon-sort"></i></th>
+                        <th class="header"> Availability <i class="icon-sort"></i></th>
+                        <th class="header"> URL/Citations <i class="icon-sort"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +32,18 @@
                         <td>{{ strain.strain }}</td>
                         <td>{{ strain.lab }}</td>
                         <td>{{ strain.product_name }}</td>
+                        <td>{{ strain.species }}</td>
+                        <td>{{ strain.brewery_source }}</td>
+                        <td>{{ strain.fermentation_range }}</td>
+                        <td>{{ strain.apparent_attenuation }}</td>
+                        <td>{{ strain.flocculation }}</td>
+                        <td>{{ strain.alcohol_tolerance }}</td>
+                        <td>{{ strain.pitching_fermentation_notes }}</td>
+                        <td>{{ strain.notes }}</td>
+                        <td>{{ strain.best_styles }}</td>
+                        <td>{{ strain.same_as }}</td>
+                        <td>{{ strain.availability }}</td>
+                        <td>{{ strain.url_citation }}</td>
                     </tr>
                     {% endfor %}
             
