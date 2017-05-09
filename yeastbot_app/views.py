@@ -13,7 +13,7 @@ def yeastbot(request):
     with open(cache_path, 'r') as cache:
         data = json.load(cache)
 #    code.interact(local=locals())
-    template = loader.get_template('yeastbot.html')
+    template = loader.get_template('yeastbot_test.html')
     return HttpResponse(template.render({'data': data}, request))
 
 def yeastbot_cache(request):

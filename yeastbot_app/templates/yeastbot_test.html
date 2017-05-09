@@ -1,0 +1,54 @@
+<head>
+    <script src="/static/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+</head>
+<body>
+<div class="col-lg-8">
+<div class="panel panel-default">
+<div class="panel-heading"><h1 class="text-center">Yeast Bot</h1></div>
+<div class="panel-body">
+<table class="table table-condensed" style="border-collapse:collapse;">
+
+    <thead>
+        <tr><th></th>
+            <th>Strain</th>
+            <th>Name</th>
+            <th>Lab</th>
+            <th>Fermentation Temperature</th>
+            <th>Attenuation (%)</th>
+            <th>Flocculation</th>
+            <th>Alcohol Tolerance</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for strain, attrs in data.items %}
+        <tr data-toggle="collapse" data-target="#{{ strain }}" class="accordion-toggle">
+            <td>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+            </td>
+            <td>{{ strain }}</td>
+            <td>{{ attrs.name }}</td>
+            <td>{{ attrs.lab }}</td>
+            <td>{{ attrs.temperature }}</td>
+            <td>{{ attrs.attenuation }}</td>
+            <td>{{ attrs.flocculation }}</td>
+            <td>{{ attrs.alcohol_tolerance }}</td>
+        </tr>
+        <tr>
+            <td colspan="8" class="hiddenRow">
+                <div id="{{ strain }}" class="accordian-body collapse">
+                   <h4>Description:</h4> {{ attrs.description }}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</div>
+</div> 
+</div>
+</div>
+</body>
