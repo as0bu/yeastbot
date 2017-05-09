@@ -28,7 +28,7 @@
             <td>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
             </td>
-            <td>{{ strain }}</td>
+            <td><a href="{{ attrs.url }}" target="_blank">{{ strain }}</a></td>
             <td>{{ attrs.name }}</td>
             <td>{{ attrs.lab }}</td>
             <td>{{ attrs.temperature }}</td>
@@ -38,9 +38,18 @@
         </tr>
         <tr>
             <td colspan="8" class="hiddenRow">
-                <div id="{{ strain }}" class="accordian-body collapse">
-                   <h4>Description:</h4> {{ attrs.description }}
-                </div>
+            <div class="accordian-body collapse" id="{{ strain }}"> 
+              <table class="table table-striped">
+                    <thead>
+                        <tr>
+                          <td colspan="8">
+                            <h4>Description:</h4>
+                            <p>{{ attrs.description }}</p>
+                          </td>
+                        </tr>
+                      </thead>
+              </table>
+              </div>
             </td>
         </tr>
         {% endfor %}
