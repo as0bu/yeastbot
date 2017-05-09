@@ -67,6 +67,7 @@ def parse_whitelabs():
         parsed_yeasts[yeast_id]['temperature'] = attr[3].get_text()
         href = item.find('a').get('href')
         parsed_yeasts[yeast_id]['description'] = get_wl_desc(base_url + href)
+        parsed_yeasts[yeast_id]['url'] = base_url + href
 #        code.interact(local=locals())
 
     return parsed_yeasts
@@ -95,8 +96,9 @@ def parse_wyeastlabs():
         parsed_yeasts[yeast_id]['flocculation'] = yeast_specs['floc']
         parsed_yeasts[yeast_id]['alcohol_tolerance'] = yeast_specs['abv'] + '%'
         parsed_yeasts[yeast_id]['temperature'] = yeast_specs['temp'] + \
-                                                             '\u00b0F'
+                                                  '\u00b0F'
         parsed_yeasts[yeast_id]['description'] = yeast_specs['desc']
+        parsed_yeasts[yeast_id]['url'] = base_url + href
 
     return parsed_yeasts
 
