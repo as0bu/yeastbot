@@ -24,7 +24,7 @@
 
     <tbody>
         {% for strain, attrs in data.items %}
-        <tr data-toggle="collapse" data-target="#{{ strain }}" class="accordion-toggle">
+        <tr data-toggle="collapse" data-target="#{{ strain.split|join:"_" }}" class="accordion-toggle">
             <td>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
             </td>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td colspan="8" class="hiddenRow">
-            <div class="accordian-body collapse" id="{{ strain }}"> 
+            <div class="accordian-body collapse" id="{{ strain.split|join:"_" }}"> 
               <table class="table table-striped">
                     <thead>
                         <tr>
