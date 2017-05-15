@@ -2,3 +2,4 @@ beautifulsoup4==4.6.0
 Django==1.11.1
 pdfminer.six==20170419
 requests==2.14.2
+uwsgi==2.0.15
