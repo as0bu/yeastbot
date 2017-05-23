@@ -128,11 +128,13 @@ def lall_yeast_specs(url):
 
 def parse_whitelabs():
     base_url = 'http://www.whitelabs.com/'
-    yeast_url = base_url + 'yeast-bank?show=yeasts&type=ale&tid=238'
+    yeast_url = base_url + 'yeast-bank?&type=yeasts'
     yeasts = get_wl_yeasts(yeast_url)
     parsed_yeasts = {}
 
     for item in yeasts:
+        if item.find_all(src=re.compile("pro-icon")):
+            continue
         parsed_h2 = item.h2.get_text().split(' ', 1)
         attr = item.find_all('div', {'class': 'value'})
         yeast_id = parsed_h2[0]
