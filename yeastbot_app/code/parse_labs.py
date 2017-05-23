@@ -6,8 +6,6 @@ from io import StringIO
 from bs4 import BeautifulSoup
 from django.core.files import File
 import requests
-import code
-import pprint
 import os
 import json
 import re
@@ -42,6 +40,7 @@ def get_wy_yeasts(url):
     yeasts = soup.find_all('div', {'class': 'box node-type-yeast-strain'})
     return yeasts
 
+
 def get_lall_yeasts(url):
     soup = get_soup(url)
     div_class = 'col-md-7 col-sm-8 col-xs-8 pull-right'
@@ -70,6 +69,7 @@ def get_wy_yeast_specs(url):
     data['abv'] = specs.find('div', {'id': 'abv'}).div.get_text()
     return data
 
+
 def lall_yeast_specs(url):
     soup = get_soup(url)
     desc = soup.find('div', {'class': 'product-quick-fact'}).get_text().strip()
@@ -85,7 +85,7 @@ def lall_yeast_specs(url):
     password = ""
     maxpages = 1
     caching = True
-    pagenos=set()
+    pagenos = set()
 
     for page in PDFPage.get_pages(io_data, pagenos, maxpages=maxpages,
                                   password=password, caching=caching,
@@ -128,11 +128,13 @@ def lall_yeast_specs(url):
 
 def parse_whitelabs():
     base_url = 'http://www.whitelabs.com/'
-    yeast_url = base_url + 'yeast-bank?show=yeasts&type=ale&yeast_type=7'
+    yeast_url = base_url + 'yeast-bank?&type=yeasts'
     yeasts = get_wl_yeasts(yeast_url)
     parsed_yeasts = {}
 
     for item in yeasts:
+        if item.find_all(src=re.compile("pro-icon")):
+            continue
         parsed_h2 = item.h2.get_text().split(' ', 1)
         attr = item.find_all('div', {'class': 'value'})
         yeast_id = parsed_h2[0]
@@ -200,7 +202,7 @@ def parse_lallemandlabs():
         parsed_yeasts[yeast_id]['temperature'] = yeast_specs['temp']
         parsed_yeasts[yeast_id]['description'] = yeast_specs['desc']
         parsed_yeasts[yeast_id]['url'] = yeast_specs['url']
-    
+
     return parsed_yeasts
 
 
