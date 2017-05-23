@@ -128,7 +128,7 @@ def lall_yeast_specs(url):
 
 def parse_whitelabs():
     base_url = 'http://www.whitelabs.com/'
-    yeast_url = base_url + 'yeast-bank?show=yeasts&type=ale&yeast_type=7'
+    yeast_url = base_url + 'yeast-bank?show=yeasts&type=ale&tid=238'
     yeasts = get_wl_yeasts(yeast_url)
     parsed_yeasts = {}
 
